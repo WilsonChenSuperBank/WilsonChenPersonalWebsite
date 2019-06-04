@@ -1,0 +1,14 @@
+.section1 {
+    position: relative;
+
+    .myNameTitle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 48px;
+        text-align: center;
+        border-bottom:3px solid #222;
+        padding:8px;
+    }
+}
