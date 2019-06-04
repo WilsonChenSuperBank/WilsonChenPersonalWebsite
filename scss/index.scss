@@ -1,14 +1,35 @@
 .section1 {
     position: relative;
-
-    .myNameTitle {
+   background-color:#ddd;
+    .myNameTitleAll {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
-        font-size: 48px;
-        text-align: center;
-        border-bottom:3px solid #222;
-        padding:8px;
+        
+        .myNameTitle {
+            font-size: 48px;
+            text-align: center;
+            border-bottom: 3px solid #222;
+            height: 48px;
+            width:295px;
+            padding: 8px;
+            overflow:hidden;
+        }
+
+        .communityIcon {
+           text-align:center;
+            i {
+                font-size: 32px;
+                color: #222;
+                margin: 10px;
+                cursor: pointer;
+                color:#81C7D4;
+            }
+        }
     }
+}
+
+.section2{
+   background-color:#fff;
 }

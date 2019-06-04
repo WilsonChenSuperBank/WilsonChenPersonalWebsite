@@ -1,13 +1,29 @@
 .section1 {
-  position: relative; }
-  .section1 .myNameTitle {
+  position: relative;
+  background-color: #ddd; }
+  .section1 .myNameTitleAll {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    font-size: 48px;
-    text-align: center;
-    border-bottom: 3px solid #222;
-    padding: 8px; }
+    transform: translateX(-50%) translateY(-50%); }
+    .section1 .myNameTitleAll .myNameTitle {
+      font-size: 48px;
+      text-align: center;
+      border-bottom: 3px solid #222;
+      height: 48px;
+      width: 295px;
+      padding: 8px;
+      overflow: hidden; }
+    .section1 .myNameTitleAll .communityIcon {
+      text-align: center; }
+      .section1 .myNameTitleAll .communityIcon i {
+        font-size: 32px;
+        color: #222;
+        margin: 10px;
+        cursor: pointer;
+        color: #81C7D4; }
+
+.section2 {
+  background-color: #fff; }
 
 /*# sourceMappingURL=index.css.map */
