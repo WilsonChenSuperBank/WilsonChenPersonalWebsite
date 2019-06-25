@@ -10,7 +10,9 @@ create_random_string($(".myNameTitle"));
 $(".top").on("click", function (event) {
    console.log(event);
    $('html, body').animate({ scrollTop: 0 }, 800);
-})
+});
+
+
 
 function hashbarran(fornum) {
    var random_chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
