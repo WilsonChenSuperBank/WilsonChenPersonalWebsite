@@ -1,6 +1,5 @@
 .section {
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center center;
   background-size: cover; }
 
@@ -16,7 +15,7 @@
       font-size: 48px;
       text-align: center;
       border-bottom: 3px solid #222;
-      height: 48px;
+      height: 66px;
       width: 350px;
       padding: 8px;
       overflow: hidden; }

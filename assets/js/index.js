@@ -12,6 +12,9 @@ $(".top").on("click", function (event) {
    $('html, body').animate({ scrollTop: 0 }, 800);
 });
 
+$(".fa-facebook, .fa-instagram, .fa-youtube").on("click",function(){
+   window.location = $(this).attr("openUrl");
+})
 
 
 function hashbarran(fornum) {
