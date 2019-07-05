@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SPIN</title>
+    <style>
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .allWater {
+        border-radius:50%;
+        width: 100%;
+        height: 100vh;
+        background-color: #ccc;
+        /* animation: spin 10s linear infinite; */
+      }
+
+      .spinRRR {
+        /* animation: spin 10s linear infinite; */
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        border-radius: 50%;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .allWater.fast,.spinRRR.fast{
+        animation: spin 1s linear infinite;
+      }
+      .allWater.slow,.spinRRR.slow{
+        animation: spin 10s linear infinite;
+      }
+      .allWater.stop,.spinRRR.stop{
+        /* animation-play-state: paused; */
+      }
+      .spinRRR .watermallen {
+        border-radius: 50%;
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+      .spinRRR .watermallen.red {
+        background-color: red;
+      }
+      .spinRRR .watermallen.yellow {
+        background-color: yellow;
+      }
+      .btnBig button{
+        padding:10px;
+        /* border:1px solid orange; */
+        background-color:#ccc;
+        margin-bottom:10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btnBig">
+      <button class="fastBtn">快速轉</button>
+    </div>
+    <div class="btnBig">
+      <button class="slowBtn">慢慢轉</button>
+    </div>
+    <div class="btnBig">
+      <button class="stopBtn">不要轉啦幹</button>
+    </div>
+    <div class="allWater">
+      <div class="spinRRR">
+        <div class="watermallen red">
+          <p>鯨魚的西瓜</p>
+          <p>鯨魚的西瓜</p>
+          <p>鯨魚的西瓜</p>
+        </div>
+      </div>
+      <div class="spinRRR">
+        <div class="watermallen yellow">
+          <p>鯨魚的西瓜</p>
+          <p>鯨魚的西瓜</p>
+          <p>鯨魚的西瓜</p>
+        </div>
+      </div>
+    </div>
+    <input type="number" pattern="\d*" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <Script>
+      $(".spinRRR").on("click",function(){ alert("啊啊啊啊不要點啊啊啊啊"); })
+
+      $(".fastBtn").on("click",function(){
+        removeBtnClass();
+        $(".allWater").addClass("fast");
+        $(".spinRRR").addClass("fast");
+      });
+      $(".slowBtn").on("click",function(){
+        removeBtnClass();
+        $(".allWater").addClass("slow");
+        $(".spinRRR").addClass("slow");
+      });
+      $(".stopBtn").on("click",function(){
+        removeBtnClass();
+        $(".allWater").addClass("stop");
+        $(".spinRRR").addClass("stop");
+      });
+
+      function removeBtnClass(){
+        $(".allWater").removeClass("fast");
+        $(".spinRRR").removeClass("fast");
+        $(".allWater").removeClass("slow");
+        $(".spinRRR").removeClass("slow");
+        $(".allWater").removeClass("stop");
+        $(".spinRRR").removeClass("stop");
+      }
+
+    </Script>
+  </body>
+</html>
