@@ -5,15 +5,60 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link rel="stylesheet" href="../../assets/css/reset.css">
    <link rel="stylesheet" href="../../assets/css/all.css">
-   <link rel="stylesheet" href="../../assets/css/squard.css">  
+   <link rel="stylesheet" href="../../assets/css/squard.css">
    <title>Squared</title>
 </head>
 
 <body>
    <div class="squaredAll">
+      <div class="squaredCol">
+         <div class="squared">
+            <p class="englishText" englishtext="192">`</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="49">1</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="50">2</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="51">3</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="52">4</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="53">5</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="54">6</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="55">7</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="56">8</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="57">9</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="48">0</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="189">-</p>
+         </div>
+         <div class="squared">
+            <p class="englishText" englishtext="187">=</p>
+         </div>
+         <div class="squared squared2">
+            <p class="englishText" englishtext="8">Del</p>
+         </div>
+      </div>
       <div class="squared">
          <p class="englishText" englishtext="87">W</p>
       </div>
@@ -34,9 +79,13 @@
       </div>
    </div>
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+
    <script>
       function keyFunction() {
          var ssName = document.getElementsByClassName("englishText");
@@ -46,7 +95,7 @@
          //敲鍵盤的數值
          for (var i = 0; i < ssName.length; i++) {
             if (ssName[i].getAttribute("englishtext") == keyCoo) {
-                ssName[i].classList.add("bloeen");
+               ssName[i].classList.add("bloeen");
             }
          }
       }

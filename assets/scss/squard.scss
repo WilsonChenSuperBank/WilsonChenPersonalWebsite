@@ -1,19 +1,20 @@
 .squaredAll {
     width: 100%;
-    display: flex;
-    justify-content: center;
     background-color: #333;
     height: 100vh;
 
-    .squared {
-        width: 100px;
-        height: 100px;
-        margin: 10px;
-        display: inline-block;
+    .squaredCol {
+        display: flex;
+        width: 100%;
+    }
 
+    .squared {
+        margin: 5px;
+        display: inline-block;
+        flex:1;
         p {
             border: 2px solid #fff;
-            padding: 32px;
+            padding: 16px 0;
             font-size: 32px;
             color: #fff;
             text-align: center;
@@ -33,5 +34,8 @@
             transform: scale(1.1);
             box-shadow: 0 0 1rem #ffc600;
         }
+    }
+    .squared2 {
+        flex:2;
     }
 }
