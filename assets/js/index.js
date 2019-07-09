@@ -12,10 +12,9 @@ $(".top").on("click", function (event) {
    $('html, body').animate({ scrollTop: 0 }, 800);
 });
 
-$(".fa-facebook, .fa-instagram, .fa-youtube").on("click",function(){
-   window.location = $(this).attr("openUrl");
-})
-
+$(".fa-facebook, .fa-instagram, .fa-youtube").on("click", function () {
+   window.open($(this).attr("openUrl"), "_blank");
+});
 
 function hashbarran(fornum) {
    var random_chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
