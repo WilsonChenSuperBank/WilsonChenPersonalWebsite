@@ -1,7 +1,8 @@
 .squaredAll {
-  width: 100%;
+  width: 900px;
   background-color: #333;
-  height: 100vh; }
+  height: 100vh;
+  margin: 0 auto; }
   .squaredAll .squaredCol {
     display: flex;
     width: 100%; }
@@ -12,7 +13,7 @@
     .squaredAll .squared p {
       border: 2px solid #fff;
       padding: 16px 0;
-      font-size: 32px;
+      font-size: 1em;
       color: #fff;
       text-align: center;
       transform: all .5s; }
