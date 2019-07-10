@@ -3,16 +3,19 @@
     background-position: center center;
     background-size: cover;
     text-align: center;
-    h5{
-        font-size:48px;
-        margin:10px 0;
+    
+    padding-bottom: 10px;
+
+    h5 {
+        font-size: 48px;
+        margin: 10px 0;
     }
 }
 
 .section1 {
     position: relative;
-    
-    height:33vh;
+    height: 33vh;
+
     .myNameTitleAll {
         position: absolute;
         top: 50%;
@@ -43,16 +46,28 @@
     }
 }
 
-.section2 {
-    background-color: #fff;
+.homeMenu {
     
-    .section2Link{
-        margin:10px 0px;
+
+    ul {
+        padding: 10px;
     }
 }
 
-.top{
-    padding:8px;
-    font-size:32px;
+.section2 {
+    background-color: #fff;
+
+    .section2Link {
+        margin: 10px 0px;
+    }
+}
+
+.top {
+    padding: 8px;
+    font-size: 32px;
     text-align: right;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

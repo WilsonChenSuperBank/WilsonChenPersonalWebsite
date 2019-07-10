@@ -7,14 +7,18 @@ $("li").on("click", function () {
 
 create_random_string($(".myNameTitle"));
 
-$(".top").on("click", function (event) {
-   console.log(event);
+$(".top").on("click", function () {
    $('html, body').animate({ scrollTop: 0 }, 800);
 });
 
 $(".fa-facebook, .fa-instagram, .fa-youtube").on("click", function () {
    window.open($(this).attr("openUrl"), "_blank");
 });
+
+$(".section2Link").on("click",function(){
+   var ouo = $(this).data("href");
+   fecthAllHtml(ouo);
+})
 
 function hashbarran(fornum) {
    var random_chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
@@ -64,4 +68,18 @@ function create_random_string(random_dom) {
 
       })(i);
    }
+}
+
+function fecthAllHtml(url) {
+   fetch(url, {})
+      .then((response) => {
+         // 這裡會得到一個 ReadableStream 的物件
+         console.log(response);
+         // 可以透過 blob(), json(), text() 轉成可用的資訊
+         return response;
+      }).then((jsonData) => {
+         console.log(jsonData);
+      }).catch((err) => {
+         console.log('錯誤:', err);
+      });
 }

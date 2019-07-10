@@ -19,15 +19,10 @@
 
 <body>
    <header class="container">
-      <ul>
-         <li>主頁</li>
-         <li>關於</li>
-         <li>卡片</li>
-         <li>影片牆</li>
-      </ul>
+
    </header>
    <div class="section section1 container-fluid">
-      <div class="myNameTitleAll">
+      <div class="myNameTitleAll ">
          <h1 class="myNameTitle" endvalue="Whale Afbeatz">Whale Afbeatz</h1>
          <div class="communityIcon">
             <i class="fab fa-facebook" openUrl="https://www.fb.com/kk811215"></i>
@@ -35,12 +30,21 @@
             <i class="fab fa-youtube" openUrl="https://www.youtube.com/kk811215"></i>
          </div>
       </div>
+
    </div>
-   <div class="section section2 container">
+   <div class="homeMenu container">
+      <ul class="d-flex">
+         <li>主頁</li>
+         <li>關於</li>
+         <li>小作品</li>
+         <li>影片牆</li>
+      </ul>
+   </div>
+   <div class="section section2 container-fluid">
 
       <h5>關於</h5>
-      <div class="cardAll d-flex">
-         <div class="card col-4" style="width: 18rem;">
+      <div class="cardAll container d-flex">
+         <div class="card col-4">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/04/07/21/22/wave-2211925_960_720.jpg"
                alt="Card image cap">
             <div class="card-body">
@@ -49,7 +53,7 @@
             </div>
 
          </div>
-         <div class="card col-4" style="width: 18rem;">
+         <div class="card col-4">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/08/22/17/49/tenerife-3624235_960_720.jpg"
                alt="Card image cap">
             <div class="card-body">
@@ -58,7 +62,7 @@
                   content.</p>
             </div>
          </div>
-         <div class="card col-4" style="width: 18rem;">
+         <div class="card col-4">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/12/18/01/41/sea-3025268_960_720.jpg"
                alt="Card image cap">
             <div class="card-body">
@@ -70,14 +74,60 @@
       </div>
    </div>
 
-   <div class="section container">
+   <div class="section container-fluid">
       <h5>小作品</h5>
       <a class="btn btn-primary section2Link" href="./Pages/components/slider.html" target="_blank">輪播</a>
       <a class="btn btn-primary section2Link" href="./Pages/components/squard.html" target="_blank">鍵盤偵測</a>
       <a class="btn btn-primary section2Link" href="./Pages/components/spin.html" target="_blank">轉轉轉</a>
+      <a class="btn btn-primary section2Link" href="./Pages/containers/bootstrapPractice.html"
+         target="_blank">Bootstrap練習</a>
+      <a class="btn btn-primary section2Link" href="#">時鐘</a>
+      <div class="section2Link" data-href="./Pages/components/slider.html">作品展示</div>
    </div>
 
+   <div class="section container-fluid">
+      <h5>影片牆</h5>
+      <div class="cardAll container d-flex">
+         <div class="card col-4">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/04/07/21/22/wave-2211925_960_720.jpg"
+               alt="Card image cap">
+            <div class="card-body">
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+            </div>
+
+         </div>
+         <div class="card col-4">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/08/22/17/49/tenerife-3624235_960_720.jpg"
+               alt="Card image cap">
+            <div class="card-body">
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's
+                  content.</p>
+            </div>
+         </div>
+         <div class="card col-4">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/12/18/01/41/sea-3025268_960_720.jpg"
+               alt="Card image cap">
+            <div class="card-body">
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's
+                  content.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <footer class="py-4 bg-dark text-white-50">
+      <div class="container text-center">
+         <small>Copyright &copy; Your Website</small>
+      </div>
+   </footer>
+
    <div class="top"><i class="fas fa-angle-double-up"></i></div>
+
+
+
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
