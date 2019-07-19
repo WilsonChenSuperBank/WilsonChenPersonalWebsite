@@ -1,20 +1,4 @@
 body {
-  background-color: #FFF;
   font-family: 'Noto Sans TC', sans-serif; }
-
-.section {
-  width: 100%;
-  background-color: #fff; }
-
-header {
-  width: 100%;
-  background-color: white;
-  color: #111; }
-  header ul {
-    display: flex;
-    justify-content: center; }
-    header ul li {
-      padding: 20px;
-      cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */

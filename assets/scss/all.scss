@@ -1,25 +1,7 @@
-body{
-   background-color:#FFF;
-   font-family: 'Noto Sans TC', sans-serif;
+body {
+    font-family: 'Noto Sans TC', sans-serif;
 }
 
-.section{
-   width:100%;
-   background-color:#fff;
-}
+.section {}
 
-header{
-   width:100%;
-   background-color:white;
-   color: #111;
-   ul{
-      display:flex;
-      justify-content: center;
-      
-      li{
-         padding:20px;
-         cursor: pointer;
-      }
-      
-   }
-}
+header {}
