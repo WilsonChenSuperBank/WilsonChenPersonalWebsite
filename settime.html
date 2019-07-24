@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+   <style>
+      .fontsTwoLineClass {
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         white-space: normal;
+         overflow: hidden;
+         height: 48px;
+         padding-bottom: 0;
+      }
+
+      body {
+         margin: 10px;
+      }
+
+      .box {
+         display: block;
+         background-color: black;
+         width: 100px;
+         height: 100px;
+         border-radius: 10px;
+         margin-bottom: 10px;
+      }
+
+      .box.orange {
+         background-color: orange;
+      }
+
+      .box.green {
+         background-color: green;
+      }
+
+      .box.gray {
+         background-color: gray;
+      }
+   </style>
+</head>
+
+<body>
+
+   <div class="fontsTwoLineClass">AAAAAA AAAAAA AAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAA AAAAAA AAAAAA AAAAAA AAAAAA
+      AAAAAA AAAAAA AAAAAA AAAAAA AAAAAA </div>
+
+   <form>
+      <input type="button" value="Start count!" onClick='countdownNumTest(1000,"testTime","(",")");'>
+      <input type="button" value="Stop count!" onClick="stopCountdownNumTest()">
+   </form>
+
+   <h2 class="title">TweenMax.to() Basic Usage</h2>
+   <div class="box orange"></div>
+   <div class="box grey"></div>
+   <div class="box green"></div>
+
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script type="text/javascript">
+
+
+      var ccc = 0
+      var ttt
+
+      function countdownNumTest(number, id, startString, endString) {
+         if (number - ccc == 0) {
+            console.log("stop");
+         }
+         else {
+           
+            console.log(startString + (number - ccc) + endString);
+            ccc = ccc + 1;
+            ttt = setTimeout('countdownNumTest(1000,"testTime","(",")");', 1000);
+         }
+      }
+
+      function stopCountdownNumTest() {
+         clearTimeout(ttt);
+      }
+
+      
+
+      var errorMsss = 0;
+
+      function aniSquare() {
+         TweenMax.to("h2.title", 1, { opacity: 0.3 });
+         TweenMax.to(".box", 3, { x: 300 });
+         TweenMax.to(".green", 3, { rotation: 360, scale: 0.5 });
+         if (errorMsss === 50) {
+            errorMsss = errorMsss + 1;
+            console.log("stop");
+         }
+         else {
+            errorMsss = errorMsss + 1;
+            console.log("?" + errorMsss);
+            setTimeout("aniSquare()", 3000);
+         }
+      }
+
+      // aniSquare();
+
+   </script>
+</body>
+
+</html>
