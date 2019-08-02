@@ -7,33 +7,72 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Whale's Chart Js</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
    <style>
       .canvasWindow {
-         width: 50%;
+         width: 100%;
          margin: 0 auto;
+         text-align: center;
+         padding: 20px;
+      }
+      #randomizeData{
+         margin-top:15px;
+      }
+
+      button {
+         width: 45%;
+         margin-bottom: 15px;
+      }
+
+      .dountButton{
+         text-align: center;
       }
    </style>
 </head>
 
 <body>
-   <div class="canvasWindow">
+   <div class="container">
+      <div class="canvasWindow">
+         <canvas id="chart-area" width="400" height="400"></canvas>
+         <button id="randomizeData" class="btn btn-dark">重載</button>
+      </div>
+      <div class="canvasWindow">
+         <canvas id="chart-area-dount" width="400" height="400"></canvas>
+
+
+
+      </div>
+      <div class="dountButton">
+         <button id="randomizeData-dount" class="btn btn-dark">重載</button>
+
+         <button id="addDataset-dount" class="btn btn-dark">增加圈圈</button>
+
+         <button id="removeDataset-dount" class="btn btn-dark">減少圈圈</button>
+
+         <button id="addData-dount" class="btn btn-dark">增加顏色</button>
+
+         <button id="removeData-dount" class="btn btn-dark">減少顏色</button>
+
+         <button id="changeCircleSize-dount" class="btn btn-dark">半圓/圈圈切換</button>
+      </div>
+   </div>
+   <div class="canvasWindow" style="display:none;">
       <canvas id="myChartBar" width="400" height="400"></canvas>
    </div>
-   <div class="canvasWindow">
+   <div class="canvasWindow" style="display:none;">
       <canvas id="myChartPie" width="400" height="400"></canvas>
    </div>
-   <div class="canvasWindow">
+   <div class="canvasWindow" style="display:none;">
       <canvas id="myChartLine" width="400" height="400"></canvas>
    </div>
 
-   <div class="canvasWindow">
-      <canvas id="chart-area" width="400" height="400"></canvas>
-      <button id="randomizeData">Randomize Data</button>
 
    </div>
 
    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
    <script>
 
@@ -69,7 +108,7 @@
          purple: 'rgb(153, 102, 255)',
          grey: 'rgb(201, 203, 207)'
       };
-      
+
       //bar
       var ctxBar = document.getElementById('myChartBar');
       var myChart = new Chart(ctxBar, {
@@ -92,7 +131,7 @@
 
       //line
       var ctxLine = document.getElementById("myChartLine");
-      var myPieChart = new Chart(ctxLine, {
+      var myLineChart = new Chart(ctxLine, {
          type: 'line',
          data: {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -140,8 +179,11 @@
       };
 
       window.onload = function () {
-         var ctx = document.getElementById('chart-area').getContext('2d');
-         window.myPie = new Chart(ctx, config);
+         var ctxSample = document.getElementById('chart-area').getContext('2d');
+         window.myPie = new Chart(ctxSample, config);
+
+         var ctxDount = document.getElementById('chart-area-dount').getContext('2d');
+         window.myDoughnut = new Chart(ctxDount, configDount);
       };
 
       document.getElementById('randomizeData').addEventListener('click', function () {
@@ -153,6 +195,128 @@
 
          window.myPie.update();
       });
+
+      // reset 2
+
+      var configDount = {
+         type: 'doughnut',
+         data: {
+            datasets: [{
+               data: [
+                  randomScalingFactor(),
+                  randomScalingFactor(),
+                  randomScalingFactor(),
+                  randomScalingFactor(),
+                  randomScalingFactor(),
+               ],
+               backgroundColor: [
+                  window.chartColors.red,
+                  window.chartColors.orange,
+                  window.chartColors.yellow,
+                  window.chartColors.green,
+                  window.chartColors.blue,
+               ],
+               label: 'Dataset 1'
+            }],
+            labels: [
+               'Red',
+               'Orange',
+               'Yellow',
+               'Green',
+               'Blue'
+            ]
+         },
+         options: {
+            responsive: true,
+            legend: {
+               position: 'top',
+            },
+            title: {
+               display: true,
+               text: 'Chart.js Doughnut Chart'
+            },
+            animation: {
+               animateScale: true,
+               animateRotate: true
+            }
+         }
+      };
+
+
+      document.getElementById('randomizeData-dount').addEventListener('click', function () {
+         configDount.data.datasets.forEach(function (dataset) {
+            dataset.data = dataset.data.map(function () {
+               return randomScalingFactor();
+            });
+         });
+         window.myDoughnut.update();
+      });
+
+
+      var colorNames = Object.keys(window.chartColors);
+      document.getElementById('addDataset-dount').addEventListener('click', function () {
+         var newDataset = {
+            backgroundColor: [],
+            data: [],
+            label: 'New dataset ' + configDount.data.datasets.length,
+         };
+
+         for (var index = 0; index < configDount.data.labels.length; ++index) {
+            newDataset.data.push(randomScalingFactor());
+
+            var colorName = colorNames[index % colorNames.length];
+            var newColor = window.chartColors[colorName];
+            newDataset.backgroundColor.push(newColor);
+         }
+
+         configDount.data.datasets.push(newDataset);
+         window.myDoughnut.update();
+      });
+
+      document.getElementById('addData-dount').addEventListener('click', function () {
+         if (configDount.data.datasets.length > 0) {
+            configDount.data.labels.push('data #' + configDount.data.labels.length);
+
+            var colorName = colorNames[configDount.data.datasets[0].data.length % colorNames.length];
+            var newColor = window.chartColors[colorName];
+
+            configDount.data.datasets.forEach(function (dataset) {
+               dataset.data.push(randomScalingFactor());
+               dataset.backgroundColor.push(newColor);
+            });
+
+            window.myDoughnut.update();
+         }
+      });
+
+      document.getElementById('removeDataset-dount').addEventListener('click', function () {
+         configDount.data.datasets.splice(0, 1);
+         window.myDoughnut.update();
+      });
+
+      document.getElementById('removeData-dount').addEventListener('click', function () {
+         configDount.data.labels.splice(-1, 1); // remove the label first
+
+         configDount.data.datasets.forEach(function (dataset) {
+            dataset.data.pop();
+            dataset.backgroundColor.pop();
+         });
+
+         window.myDoughnut.update();
+      });
+
+      document.getElementById('changeCircleSize-dount').addEventListener('click', function () {
+         if (window.myDoughnut.options.circumference === Math.PI) {
+            window.myDoughnut.options.circumference = 2 * Math.PI;
+            window.myDoughnut.options.rotation = -Math.PI / 2;
+         } else {
+            window.myDoughnut.options.circumference = Math.PI;
+            window.myDoughnut.options.rotation = -Math.PI;
+         }
+
+         window.myDoughnut.update();
+      });
+
 
    </script>
 </body>
