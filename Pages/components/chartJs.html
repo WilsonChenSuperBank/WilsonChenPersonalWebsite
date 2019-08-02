@@ -15,8 +15,9 @@
          text-align: center;
          padding: 20px;
       }
-      #randomizeData{
-         margin-top:15px;
+
+      #randomizeData {
+         margin-top: 15px;
       }
 
       button {
@@ -24,7 +25,7 @@
          margin-bottom: 15px;
       }
 
-      .dountButton{
+      .dountButton {
          text-align: center;
       }
    </style>
@@ -38,21 +39,13 @@
       </div>
       <div class="canvasWindow">
          <canvas id="chart-area-dount" width="400" height="400"></canvas>
-
-
-
       </div>
       <div class="dountButton">
          <button id="randomizeData-dount" class="btn btn-dark">重載</button>
-
          <button id="addDataset-dount" class="btn btn-dark">增加圈圈</button>
-
          <button id="removeDataset-dount" class="btn btn-dark">減少圈圈</button>
-
          <button id="addData-dount" class="btn btn-dark">增加顏色</button>
-
          <button id="removeData-dount" class="btn btn-dark">減少顏色</button>
-
          <button id="changeCircleSize-dount" class="btn btn-dark">半圓/圈圈切換</button>
       </div>
    </div>
@@ -65,17 +58,11 @@
    <div class="canvasWindow" style="display:none;">
       <canvas id="myChartLine" width="400" height="400"></canvas>
    </div>
-
-
-   </div>
-
    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
    <script>
-
       var allDateSets;
       allDateSets = [{
          label: '# of Votes',
@@ -140,7 +127,6 @@
       });
 
       //reset sample
-
       var randomScalingFactor = function () {
          return Math.round(Math.random() * 100);
       };
@@ -158,10 +144,10 @@
                ],
                backgroundColor: [
                   window.chartColors.red,
-                  'rgb(255, 159, 64)',
-                  'rgb(255, 205, 86)',
-                  'rgb(75, 192, 192)',
-                  'rgb(54, 162, 235)',
+                  window.chartColors.orange,
+                  window.chartColors.yellow,
+                  window.chartColors.green,
+                  window.chartColors.blue,
                ],
                label: 'Dataset 1'
             }],
@@ -181,7 +167,6 @@
       window.onload = function () {
          var ctxSample = document.getElementById('chart-area').getContext('2d');
          window.myPie = new Chart(ctxSample, config);
-
          var ctxDount = document.getElementById('chart-area-dount').getContext('2d');
          window.myDoughnut = new Chart(ctxDount, configDount);
       };
@@ -192,12 +177,10 @@
                return randomScalingFactor();
             });
          });
-
          window.myPie.update();
       });
 
       // reset 2
-
       var configDount = {
          type: 'doughnut',
          data: {
@@ -241,8 +224,6 @@
             }
          }
       };
-
-
       document.getElementById('randomizeData-dount').addEventListener('click', function () {
          configDount.data.datasets.forEach(function (dataset) {
             dataset.data = dataset.data.map(function () {
@@ -252,23 +233,20 @@
          window.myDoughnut.update();
       });
 
-
       var colorNames = Object.keys(window.chartColors);
+
       document.getElementById('addDataset-dount').addEventListener('click', function () {
          var newDataset = {
             backgroundColor: [],
             data: [],
             label: 'New dataset ' + configDount.data.datasets.length,
          };
-
          for (var index = 0; index < configDount.data.labels.length; ++index) {
             newDataset.data.push(randomScalingFactor());
-
             var colorName = colorNames[index % colorNames.length];
             var newColor = window.chartColors[colorName];
             newDataset.backgroundColor.push(newColor);
          }
-
          configDount.data.datasets.push(newDataset);
          window.myDoughnut.update();
       });
@@ -276,15 +254,12 @@
       document.getElementById('addData-dount').addEventListener('click', function () {
          if (configDount.data.datasets.length > 0) {
             configDount.data.labels.push('data #' + configDount.data.labels.length);
-
             var colorName = colorNames[configDount.data.datasets[0].data.length % colorNames.length];
             var newColor = window.chartColors[colorName];
-
             configDount.data.datasets.forEach(function (dataset) {
                dataset.data.push(randomScalingFactor());
                dataset.backgroundColor.push(newColor);
             });
-
             window.myDoughnut.update();
          }
       });
@@ -296,12 +271,10 @@
 
       document.getElementById('removeData-dount').addEventListener('click', function () {
          configDount.data.labels.splice(-1, 1); // remove the label first
-
          configDount.data.datasets.forEach(function (dataset) {
             dataset.data.pop();
             dataset.backgroundColor.pop();
          });
-
          window.myDoughnut.update();
       });
 
@@ -313,11 +286,8 @@
             window.myDoughnut.options.circumference = Math.PI;
             window.myDoughnut.options.rotation = -Math.PI;
          }
-
          window.myDoughnut.update();
       });
-
-
    </script>
 </body>
 
