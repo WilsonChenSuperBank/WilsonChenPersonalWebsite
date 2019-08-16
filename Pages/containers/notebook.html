@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>程式碼筆記部分</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <style>
+      /* 隱藏number箭頭 */
+      input[type=number] {
+         -moz-appearance: textfield;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+         -webkit-appearance: none;
+         margin: 0;
+      }
+
+      #inputNumberGugu {
+         padding: 10px;
+      }
+
+      .section {
+         padding: 20px;
+         border-bottom: 1px solid #ddd;
+      }
+
+      /* Youtube 自適應 */
+      .youtube {
+         position: relative;
+         padding-bottom: 56.25%;
+         padding-top: 30px;
+         height: 0;
+         overflow: hidden;
+      }
+
+      .youtube iframe {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         border:0px;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="section">
+      <p>隱藏Input Number箭頭</p>
+      <input type="number" name="" id="inputNumberGugu">
+   </div>
+   <div class="section">
+      <div id="testAjax">
+         Change Html To Me !
+      </div>
+      <button class="btn btn-dark" onClick="testAjax();">Ajax Gogo</button>
+   </div>
+   <div class="section">
+      <p>js列印測試</p>
+      <Input Type="Button" Value="列印" class="btn btn-dark" onClick="javascript:print();">
+   </div>
+   <div class="section">
+      <div class="youtube">
+         <iframe src="https://www.youtube.com/embed/09R8_2nJtjg"></iframe>
+      </div>
+   </div>
+
+
+
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script>
+      //testAjax
+      var testAjax = () => {
+         var ticketCname;
+         var ticketTotal;
+         var ticketId;
+         $.ajax({
+            url: "testAjax.html",
+            data: "&ticketCname=" + ticketCname +
+               "&ticketTotal=" + ticketTotal +
+               "&ticketId=" + ticketId,
+            type: "post",
+            dataType: "html",
+            success: function (Hdata) {
+               $('#testAjax').html(Hdata);
+            },
+            error: function () {
+               alert("Error");
+            }
+         });
+      }
+
+      //列印
+      function in2() {
+         var printPage = window.open("", "Printing", "");
+         printPage.document.write("<div>abcd</div>");
+      }
+
+      function printScreen(printlist) {
+         var value = printlist.innerHTML;
+         var printPage = window.open("", "Printing", "");
+         printPage.document.open();
+         printPage.document.write("<HTML><head></head><BODY onload='window.print();window.close()'>");
+         printPage.document.write("<PRE>");
+         printPage.document.write(value);
+         printPage.document.write("</PRE>");
+         printPage.document.close("</BODY></HTML>");
+      }
+
+      //網頁載入時動作
+      window.onload = function () {
+
+      }
+
+      console.log(replaceAll("<p><p><p><p><p><p>", "<p>", "<br>"));
+      //就能一次把<p>全部換成<br>
+
+      function replaceAll(txt, replace, with_this) {
+         return txt.replace(new RegExp(replace, 'g'), with_this);
+      }
+
+      //---IE無法跑js forEach的問題---
+
+      if (typeof Array.prototype.forEach != 'function') {
+         Array.prototype.forEach = function (callback) {
+            for (var i = 0; i < this.length; i++) {
+               callback.apply(this, [this[i], i, this]);
+            }
+         };
+      }
+
+
+
+   </script>
+</body>
+
+</html>
