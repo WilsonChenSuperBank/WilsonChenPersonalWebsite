@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Vue Todo</title>
+</head>
+
+<body>
+   <div id="app">
+      <h1>Vue Todo</h1>
+
+      <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo(newTodo)">
+
+      <div class="valueAll">
+         <div class="valueValue" v-for="value in todos">
+            <p>{{value.content}}</p>
+            <button v-on:click.prevent="removeTodo(value)">Delete it</button>
+         </div>
+
+      </div>
+      <pre>
+         {{this.todos}}
+      </pre>
+   </div>
+   <script src="../js/vue2.6.11.js"></script>
+   <script src="todo.js"></script>
+</body>
+
+</html>
