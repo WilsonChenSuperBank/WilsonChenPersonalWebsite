@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>WhaleFunk Vue基礎</title>
+</head>
+<body>
+   <h1>V-On</h1>
+   <div class="app">
+      <div class="shopAll" v-for="shopValue in shopArray">
+         <div class="title" v-on:click="shopName(shopValue.shopName)">點我看商場名稱</div>
+         <p v-on:click="productPrice(shopValue.apple)">{{"apple:$" + shopValue.apple}}</p>
+         <p v-on:click="productPrice(shopValue.iphone11)">{{"iphone11:$" + shopValue.iphone11}}</p>
+      </div>
+   </div>
+
+   
+
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+   <script src="on.js"></script>
+</body>
+</html>

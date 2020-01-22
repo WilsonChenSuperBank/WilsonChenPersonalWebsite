@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>WhaleFunk Vue判斷</title>
+</head>
+
+<body>
+   <div id="app">
+      <p>{{message}}</p>
+      <p v-if="messageType">訊息是否不見</p>
+      <button id="changeType">顯示</button>
+      <p v-show="messageShow">訊息是否打開</p>
+      <button id="changeShow">顯示</button>
+
+      <hr>
+
+      <input type="text" v-model="score">
+
+      <div v-if="score>=60">分數及格</div>
+      <div v-if="score<60">分數不及格</div>
+   </div>
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+   <script src="if.js"></script>
+</body>
+
+</html>
